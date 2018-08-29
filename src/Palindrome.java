@@ -1,3 +1,6 @@
+//main file of Palindrome
+//iterates through to check if it is a palindrome, then is almost a palindrome via isLetter and purge
+//reeeeegex
 public class Palindrome {
 	public static boolean isPal(String s)
 	{
@@ -16,12 +19,13 @@ public class Palindrome {
 			}
 	private static boolean isLetter(String letter) {
 		if (Character.isLetter(letter.charAt(0))) {
+			//checks to make sure it is actually letters 
 			return true;}
 		return false;
 	}
 	private static String purge(String x) {
 		//parses out all non-alpha inputs
-		return x.replaceAll("[^A-Za-z0-9]", "");}
+		return x.replaceAll("[^A-Za-z]", "");}
 	
 	public static boolean almostPal(String s) 
 	{	
@@ -30,7 +34,7 @@ public class Palindrome {
 		//reverses the string 
 		String alPal = new StringBuilder(purgedString).reverse().toString();
 		if(alPal.equals(purgedString) && isPal(s) != true) {
-			//strict equality check
+			//strict equality check. checks to make sure that isPal didnt already check out as false
 			return true;
 		}
 		return false;

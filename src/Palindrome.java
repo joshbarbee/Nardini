@@ -1,13 +1,10 @@
-//main file of Palindrome
-//iterates through to check if it is a palindrome, then is almost a palindrome via isLetter and purge
-//reeeeegex
 public class Palindrome {
 	public static boolean isPal(String s)
 	{
 		String isPal = new StringBuilder(s).reverse().toString();
 		//reverses string
 		for(int x = 0; x<isPal.length(); x++) {
-			if (Character.isLetter(isPal.charAt(x)) == false) {
+			if(isLetter(isPal.substring(x,x+1)) == false) {
 				//checks to see if the characters are all letters or not
 				return false;}}
 		if(isPal.equals(s)) {
@@ -18,7 +15,7 @@ public class Palindrome {
 		return false;
 			}
 	private static boolean isLetter(String letter) {
-		if (Character.isLetter(letter.charAt(0))) {
+		if (letter.compareTo("a") >= 0 && letter.compareTo("z") <= 26) {
 			//checks to make sure it is actually letters 
 			return true;}
 		return false;
